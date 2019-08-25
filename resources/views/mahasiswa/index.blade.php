@@ -6,8 +6,10 @@
    <div class="container">
       <div class="row">
          <div class="col">
-            <h1 class="mt-3">Daftar Mahasiswa </h1>
-          
+            <hr>
+            <h1 class="mt-3 ml-5">DAFTAR MAHASISWA  </h1>
+            <hr>
+             <br>
             <table class="table table-hover">
              <thead class="thead-dark">
                <tr>

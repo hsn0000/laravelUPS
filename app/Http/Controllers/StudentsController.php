@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Student;
-use App\Mahasiswa;
 
-class MahasiswaController extends Controller
+class StudentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +13,9 @@ class MahasiswaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        //  $mahasiswa = DB::table('students')->get();
-
-        $mahasiswa = Mahasiswa::all();
-         return view('mahasiswa/index', ['mahasiswa' => $mahasiswa]);
+    {
+        $student = Student::all();
+        return view('students.index', compact('student'));
     }
 
     /**
@@ -29,7 +25,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
     }
 
     /**
@@ -40,18 +36,41 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       // $student = new Student;
+        // $student->nama = $request->nama;
+        // $student->nrp = $request->nrp;
+        // $student->email = $request->email;
+        // $student->jurusan = $request->jurusan;
+
+        // $student->save();
+
+        // Student::create([
+        //     'nama' => $request->nama,
+        //     'nrp' => $request->nrp,
+        //     'email' => $request->email,
+        //     'jurusan' => $request->jurusan
+        // ]);
+       $request->validate([
+          'nama' => 'required',
+          'nrp' => 'required|size:9',
+          'email' => 'required',
+          'jurusan' => 'required'
+       ]);
+
+        Student::create($request->all());
+
+        return redirect('/students')->with('status', 'Data Berhasil Di Tambahkan!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Student $student
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Student $student)
     {
-        //
+        return view('students.show', compact('student'));
     }
 
     /**

@@ -12,16 +12,17 @@
   </head>
   <body>
     
-        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-        <a class="navbar-brand" href="#">Husin UPS</a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#">HUSIN\UPS</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
          </button>
            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-            <a class="nav-item nav-link active" href=" {{url('/')}} ">Home</span></a>
+            <a class="nav-item nav-link active ml-3" href=" {{url('/')}} ">Home</span></a>
             <a class="nav-item nav-link" href=" {{url('/about')}} ">about</a>
             <a class="nav-item nav-link" href=" {{url('/mahasiswa')}} ">Mahasiswa</a>
+            <a class="nav-item nav-link" href=" {{url('/students')}} ">Students</a>
           </div>
          </div>
        </div>
