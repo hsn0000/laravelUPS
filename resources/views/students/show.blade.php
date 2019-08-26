@@ -18,14 +18,21 @@
              <br>
              <div class="card">
               <div class="card-body">
-                <h5 class="card-title"> {{$student->nama}} </h5>
-                <hr>
-                 <h6 class="card-subtitle mb-2 text-muted">{{$student->nrp}}</h6>
-                 <h6 class="card-subtitle mb-2 text-muted">{{$student->email}}</h6>
-                 <h6 class="card-subtitle mb-2 text-muted">{{$student->jurusan}}</h6>
-                 <hr>
-                <button type="submit" class="btn btn-primary">UBAH</button>
-                <button type="submit" class="btn btn-danger ml-3">HAPUS</button>
+                <h2 class="card-title ml-2"> {{$student->nama}} </h2>
+                <li class="ml-3"> <hr>
+                 <h3 class="card-subtitle mb-2 text-muted mt-2">{{$student->nrp}}</h3>
+                 </li> <hr>  
+                 <li class="ml-3">
+                 <h3 class="card-subtitle mb-2 text-muted mt-2">{{$student->email}}</h3>
+                 </li> <li class="ml-3"> <hr>
+                 <h3 class="card-subtitle mb-2 text-muted mt-2">{{$student->jurusan}}</h3>
+                 </li> <hr>
+                 <a href="/stdn/edit/{{ $student->id}}" class="btn btn-primary">UBAH??</a>
+                 <form action="/students/{{ $student->id }} " method="post" class="d-inline">
+                 @method('delete')
+                 @csrf
+                 <button type="submit" class="btn btn-danger ml-3">HAPUS!!</button>
+                 </form>
                 <a href="/students" class="card-link ml-4">KEMBALI</a>
              </div>
             </div>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Form tambah Siswa</title>
+    <title>Form Ubah Data Siswa</title>
 </head>
 <body>
     
@@ -13,32 +13,33 @@
       <div class="row">
          <div class="col-8">
              <hr>
-            <h1 class="mt-3">FORM TAMBAH DATA SISWA </h1>
+            <h1 class="mt-3">FORM UBAH DATA SISWA </h1>
             <hr>
-
-            <form method="post" action="/students">
+            
+            <form method="post" action="/students/{{ $student->id }}">
+            @method('patch')
             @csrf
               <div class="form-group">
                 <label for="nama">Nama</label>
-                  <input type="text" class="form-control @error('nama') is-invalid @enderror " id="nama" placeholder="Masukan Nama" name="nama" value="{{ old('nama') }}">
+                  <input type="text" class="form-control @error('nama') is-invalid @enderror " id="nama" placeholder="Masukan Nama" name="nama" value="{{ $student->nama }}">
                   @error('nama') <div class="invalid-feedback">{{ $message }}</div>@enderror
                </div>
               <div class="form-group">
                 <label for="nama">NRP</label>
-                  <input type="text" class="form-control  @error('nrp') is-invalid @enderror " id="nrp" placeholder="Masukan Nrp" name="nrp" value="{{ old('nrp') }}">
+                  <input type="text" class="form-control  @error('nrp') is-invalid @enderror " id="nrp" placeholder="Masukan Nrp" name="nrp" value="{{ $student->nrp }}">
                   @error('nrp') <div class="invalid-feedback">{{ $message }}</div>@enderror
                </div>       
               <div class="form-group">
                 <label for="nama">Email</label>
-                  <input type="text" class="form-control  @error('email') is-invalid @enderror " id="email" placeholder="Masukan Email" name="email"  value="{{ old('email') }}">
+                  <input type="text" class="form-control  @error('email') is-invalid @enderror " id="email" placeholder="Masukan Email" name="email"  value="{{ $student->email }}">
                   @error('email') <div class="invalid-feedback">{{ $message }}</div>@enderror
                </div>
               <div class="form-group">
                 <label for="nama">Jurusan</label>
-                  <input type="text" class="form-control  @error('jurusan') is-invalid @enderror " id="jurusan" placeholder="Masukan Jurusan" name="jurusan" value="{{ old('jurusan') }}">
+                  <input type="text" class="form-control  @error('jurusan') is-invalid @enderror " id="jurusan" placeholder="Masukan Jurusan" name="jurusan" value="{{ $student->jurusan }}">
                   @error('jurusan') <div class="invalid-feedback">{{ $message }}</div>@enderror
                </div>
-               <button type="submit" class="btn btn-primary">Tambah Data!</button>
+               <button type="submit" class="btn btn-success">Ubah Data</button>
             </form>          
          </div>
       </div>
